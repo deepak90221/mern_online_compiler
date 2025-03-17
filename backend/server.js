@@ -9,6 +9,10 @@ const PORT = process.env.PORT || 9001; // 🔹 Allow Render to assign a port
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the MERN Compiler Backend!");
+});
+
 app.use("/api/compiler", compilerRoutes);
 
 app.listen(PORT, "0.0.0.0", () => { // 🔹 Allow external access
