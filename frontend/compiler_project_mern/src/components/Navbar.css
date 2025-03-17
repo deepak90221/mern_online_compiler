@@ -1,0 +1,118 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #612626; /* Black Background */
+    color: #0f0; /* Neon Green Text */
+}
+
+/* Navbar */
+.navbar {
+    background-color: #0a1f44; /* Dark Blue */
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(14, 15, 14, 0.2);
+    position: static;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Navbar Container */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #0f0; /* Neon Green */
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #0f0;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* Navbar Items */
+.nav-item {
+    text-decoration: none;
+    color: #0f0;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.nav-item:hover {
+    background-color: #0f0;
+    color: black;
+    text-shadow: 0 0 10px #0f0;
+}
+
+/* Menu Toggle Icon */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    color: #0f0;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #0a1f44; /* Dark Blue */
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    left: 0;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(16, 16, 16, 0.2);
+}
+
+.mobile-item {
+    padding: 0.75rem 0;
+    text-decoration: none;
+    color: #0f0;
+    transition: all 0.3s ease-in-out;
+    display: block;
+}
+
+.mobile-item:hover {
+    background-color: #0f0;
+    color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .mobile-menu {
+        display: flex;
+    }
+}
