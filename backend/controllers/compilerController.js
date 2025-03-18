@@ -44,14 +44,18 @@ export const compileCode = (req, res) => {
     // Rename the file to match the class name
     fs.renameSync(filePath, javaFilePath);
 
-    command = `javac ${javaFilePath} && java -cp ${__dirname} ${className} < ${inputFilePath}`;
+    // Ensure correct execution on Windows
+    command = `javac ${javaFilePath} && java -cp . ${className} < ${inputFilePath}`;
   } else if (language === "c") {
-    command = `gcc ${filePath} -o code.exe && code.exe < ${inputFilePath}`;
+    // Ensure correct execution of compiled C code on Windows
+    command = `gcc ${filePath} -o code.exe && .\\code.exe < ${inputFilePath}`;
   } else if (language === "cpp") {
-    command = `g++ ${filePath} -o code.exe && code.exe < ${inputFilePath}`;
+    // Ensure correct execution of compiled C++ code on Windows
+    command = `g++ ${filePath} -o code.exe && .\\code.exe < ${inputFilePath}`;
   }
 
-  exec(command, (error, stdout, stderr) => {
+  // Execute the command with Windows-compatible shell
+  exec(command, { shell: "cmd.exe" }, (error, stdout, stderr) => {
     // Cleanup files after execution
     if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
     if (fs.existsSync(inputFilePath)) fs.unlinkSync(inputFilePath);
@@ -69,4 +73,4 @@ export const compileCode = (req, res) => {
     }
     res.json({ output: stdout });
   });
-}
+};
